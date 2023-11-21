@@ -46,13 +46,18 @@ namespace es._10___Classe_articoli
             {
                 return false;
             }
-            return true;
             Articolo metodo = (Articolo)obj;
             if (_codice == metodo._codice && _descrizione == metodo._descrizione && _prezzo == metodo._prezzo && _fedeltà == metodo._fedeltà)
             {
                 return true;
             }
             return false;
+        }
+
+        //Metodo ToString 
+        public override string ToString()
+        {
+            return $"codice: {_codice} descrizione: {_descrizione} prezzo: {_prezzo} fedeltà: {_fedeltà}";
         }
 
 
