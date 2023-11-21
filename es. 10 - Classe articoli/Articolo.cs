@@ -15,11 +15,12 @@ namespace es._10___Classe_articoli
         protected bool _fedeltà;
 
         //Costruttore
-        public Articolo(int Codice, string Descrizione, int Prezzo)
+        public Articolo(int Codice, string Descrizione, int Prezzo, bool Fedeltà)
         {
             _codice = Codice;
             _descrizione = Descrizione;
             _prezzo = Prezzo;
+            _fedeltà = Fedeltà;
         }
 
         //metodi GET & SET
@@ -39,6 +40,13 @@ namespace es._10___Classe_articoli
             set { _prezzo = value; }
         }
 
+        public bool Fedeltà
+        {
+            get { return _fedeltà;  }
+            set { _fedeltà = value;  }
+
+        }
+
         //Metodo Equals
         public override bool Equals(Object obj)
         {
@@ -47,7 +55,7 @@ namespace es._10___Classe_articoli
                 return false;
             }
             Articolo metodo = (Articolo)obj;
-            if (_codice == metodo._codice && _descrizione == metodo._descrizione && _prezzo == metodo._prezzo && _fedeltà == metodo._fedeltà)
+            if (Codice == metodo.Codice && Descrizione == metodo.Descrizione && Prezzo == metodo.Prezzo && Fedeltà == metodo.Fedeltà)
             {
                 return true;
             }
@@ -57,9 +65,18 @@ namespace es._10___Classe_articoli
         //Metodo ToString 
         public override string ToString()
         {
-            return $"codice: {_codice} descrizione: {_descrizione} prezzo: {_prezzo} fedeltà: {_fedeltà}";
+            return $"codice: {Codice} descrizione: {Descrizione} prezzo: {Prezzo} fedeltà: {Fedeltà}";
         }
 
-
+        //Funzione Sconto
+        public virtual double Sconto()
+        {
+            // Sconto del 5% se ha la carta fedeltà
+            if (Fedeltà)
+            {
+                Prezzo = Prezzo - Prezzo * (5 / 100);
+            }
+            return Prezzo;
+        }
     }
 }

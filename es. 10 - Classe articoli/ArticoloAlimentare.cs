@@ -17,7 +17,7 @@ namespace es._10___Classe_articoli
             get { return anno; }
         }
 
-        public ArticoloAlimentare(int Codice, string Descrizione, int Prezzo) : base(Codice, Descrizione, Prezzo)
+        public ArticoloAlimentare(int Codice, string Descrizione, int Prezzo, bool Fedeltà) : base(Codice, Descrizione, Prezzo, Fedeltà)
         {
 
         }
