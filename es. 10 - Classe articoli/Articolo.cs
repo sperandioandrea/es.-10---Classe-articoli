@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace es._10___Classe_articoli
 {
-    class Articolo
+    public class Articolo
     {
         //Attributi
         protected int _codice;
@@ -14,6 +14,14 @@ namespace es._10___Classe_articoli
         protected int _prezzo;
         protected bool _fedeltà;
 
+        //costruttore senza parametri
+        public Articolo()
+        {
+            Codice = 0;
+            Descrizione = string.Empty; //comando per azzerare una stringa
+            Prezzo = 0;
+            Fedeltà = false;
+        }
         //Costruttore
         public Articolo(int Codice, string Descrizione, int Prezzo, bool Fedeltà)
         {
@@ -21,6 +29,14 @@ namespace es._10___Classe_articoli
             _descrizione = Descrizione;
             _prezzo = Prezzo;
             _fedeltà = Fedeltà;
+        }
+        //costruttore di coppia
+        public Articolo(Articolo a)
+        {
+            Codice = a.Codice;
+            Descrizione = a.Descrizione;
+            Prezzo= a.Prezzo;
+            Fedeltà = a.Fedeltà;
         }
 
         //metodi GET & SET

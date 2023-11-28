@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace es._10___Classe_articoli
 {
-    internal class ArticoloFresco
+    class ArticoloFresco
     {
+
     }
 }
