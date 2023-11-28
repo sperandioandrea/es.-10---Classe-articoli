@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace es._10___Classe_articoli
 {
-    class ArticoloAlimentare : Articolo
+    public class ArticoloAlimentare : Articolo
     {
         private int anno;
 
@@ -16,48 +16,28 @@ namespace es._10___Classe_articoli
             set { anno = value; }
             get { return anno; }
         }
-
-        public ArticoloAlimentare(int Codice, string Descrizione, int Prezzo, bool Fedeltà, int AnnoScadenza) : base(Codice, Descrizione, Prezzo, Fedeltà)
+        //costruttore senza parametri
+        public ArticoloAlimentare() : base()
+        {
+            anno = 0;
+        }
+        //costruttore normale
+        public ArticoloAlimentare(int anno, int AnnoScadenza, int Codice, string Descrizione, int Prezzo, bool Fedeltà) : base(Codice, Descrizione, Prezzo, Fedeltà)
         {
             Anno = AnnoScadenza;
         }
-
-        /*/   public override double Sconto()
-           {
-               double scontoBase = base.Sconto();
-               if (DateTime.Now.Year == Anno)
-               {
-                   return scontoBase * 20 / 100;
-               }
-               else
-               {
-                   return scontoBase;
-              }
-           double scontoBase = base.Sconta();
-           return DateTime.Now.Year == AnnoScadenza ? scontoBase * 0.2m : scontoBase;
-
-           }/*/
-
-        //Metodo Equals
-        public override bool Equals(Object obj)
+        //costruttore di coppia
+        public ArticoloAlimentare(ArticoloAlimentare al, Articolo a) : base(a)
         {
-            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
-            {
-                return false;
-            }
-            Articolo metodo = (Articolo)obj;
-            if (Anno == metodo.Anno)
-            {
-                return true;
-            }
-            return false;
+            anno = al.Anno;
         }
-
-        //Metodo ToString 
-        public override string ToString()
-        {
-            return $"Anno: {Anno}";
-        }
+        //funzione sconto
+         public override double Sconto()
+         {
+            double scontoBase = base.Sconto();
+            return DateTime.Now.Year == Anno ? scontoBase * 20 / 100 : scontoBase;
+         }
+              
     }
 }
 
