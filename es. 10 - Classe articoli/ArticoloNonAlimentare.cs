@@ -17,15 +17,30 @@ namespace es._10___Classe_articoli
             get { return riciclabile; }
         }
 
+        public string Materiale
+        {
+            get { return materiale; }
+            set { materiale = value; }
+        }
+
         //costruttore senza parametri
-        public ArticoNonAlimetare() : base()
+        public ArticoloNonAlimentare() : base()
         {
             riciclabile = false;
             materiale = string.Empty;
         }
         //costruttore con parametri
-
+        public ArticoloNonAlimentare(bool riciclabile, string materiale, int Codice, string Descrizione, int Prezzo, bool Fedeltà) : base(Codice, Descrizione, Prezzo, Fedeltà)
+        {
+            Riciclabile = riciclabile;
+            Materiale = materiale;
+        }
         //costruttore di coppia
+        public ArticoloNonAlimentare(ArticoloNonAlimentare anl, Articolo a) : base(a)
+        {
+            Riciclabile = anl.Riciclabile;
+            Materiale = anl.Materiale;
+        }
 
     }
 }

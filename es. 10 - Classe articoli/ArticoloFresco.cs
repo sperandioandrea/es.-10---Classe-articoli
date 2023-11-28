@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace es._10___Classe_articoli
 {
-    public class ArticoloFresco : ArticoloAlimetare
+    public class ArticoloFresco : ArticoloAlimentare
     {
         private int numerogiorni;
         
@@ -23,15 +23,15 @@ namespace es._10___Classe_articoli
         }
 
         //Costruttore con parametri
-        public ArticoloFresco(int numerogiorni, int NumeroGiorni, int AnnoScadenza, int Codice, string Descrizione, int Prezzo, bool Fedeltà) : base(AnnoScadenza, Codice, Descrizione, Prezzo, Fedeltà)
+        public ArticoloFresco(int numerogiorni, int anno, int Codice, string Descrizione, int Prezzo, bool Fedeltà) : base(anno, Codice, Descrizione, Prezzo, Fedeltà)
         {
-            numerogiorni = NumeroGiorni;
+            NumeroGiorni = numerogiorni;
         }
 
         //Costruttore di coppia
         public ArticoloFresco(ArticoloFresco af, Articolo a, ArticoloAlimentare al) : base(a, al)
         {
-            numerogiorni = af.NumeroGiorni;
+            NumeroGiorni = af.NumeroGiorni;
         }
 
        
