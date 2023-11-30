@@ -42,5 +42,13 @@ namespace es._10___Classe_articoli
             Materiale = anl.Materiale;
         }
 
+        //funzione sconta
+        public override double Sconto()
+        {
+            // Sconto aggiuntivo del 10% se il materiale è riciclabile
+            double scontoBase = base.Sconto();
+            return Riciclabile ? scontoBase * 0.1 : scontoBase;
+        }
+
     }
 }

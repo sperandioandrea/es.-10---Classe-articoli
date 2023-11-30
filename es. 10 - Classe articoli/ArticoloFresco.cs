@@ -34,6 +34,14 @@ namespace es._10___Classe_articoli
             NumeroGiorni = af.NumeroGiorni;
         }
 
-       
+        //funzione sconta
+        public override double Sconto()
+        {
+            // Sconto aggiuntivo in base ai giorni di consumo
+            double scontoBase = base.Sconto();
+            double scontoGiorni = numerogiorni >= 1 ? (numerogiorni * 2) / 100 : 0;
+            return scontoBase - (scontoBase * scontoGiorni);
+        }
+
     }
 }
