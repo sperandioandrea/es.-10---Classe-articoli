@@ -50,5 +50,19 @@ namespace es._10___Classe_articoli
             return Riciclabile ? scontoBase * 0.1 : scontoBase;
         }
 
+        //metodo Equals 
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+                return false;
+
+            ArticoloNonAlimentare other = (ArticoloNonAlimentare)obj;
+            return base.Equals(obj) && Materiale == other.Materiale && Riciclabile == other.Riciclabile;
+        }
+        //metodo ToString
+        public override string ToString()
+        {
+            return $"{base.ToString()}, Materiale: {Materiale}, Riciclabile: {Riciclabile}";
+        }
     }
 }

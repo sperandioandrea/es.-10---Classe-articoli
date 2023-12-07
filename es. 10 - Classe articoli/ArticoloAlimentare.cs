@@ -10,6 +10,7 @@ namespace es._10___Classe_articoli
     public class ArticoloAlimentare : Articolo
     {
         private int anno;
+        private ArticoloAlimentare al;
 
         public int Anno
         {
@@ -31,13 +32,30 @@ namespace es._10___Classe_articoli
         {
             Anno = al.Anno;
         }
+
+
         //funzione sconto
-         public override double Sconto()
-         {
+        public override double Sconto()
+        {
             double scontoBase = base.Sconto();
             return DateTime.Now.Year == Anno ? scontoBase * 20 / 100 : scontoBase;
-         }
-              
+        }
+
+        //metodo Equals 
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+                return false;
+
+            ArticoloAlimentare other = (ArticoloAlimentare)obj;
+            return base.Equals(obj) && Anno == other.Anno;
+        }
+        //metodo ToString
+        public override string ToString()
+        {
+            return $"{base.ToString()}, Scadenza: {Anno}";
+        }
+
     }
 }
 

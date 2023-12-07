@@ -63,6 +63,17 @@ namespace es._10___Classe_articoli
 
         }
 
+        //Funzione Sconto
+        public virtual double Sconto()
+        {
+            // Sconto del 5% se ha la carta fedeltà
+            if (Fedeltà)
+            {
+                Prezzo = Prezzo - Prezzo * (5 / 100);
+            }
+            return Prezzo;
+        }
+
         //Metodo Equals
         public override bool Equals(Object obj)
         {
@@ -84,15 +95,7 @@ namespace es._10___Classe_articoli
             return $"codice: {Codice} descrizione: {Descrizione} prezzo: {Prezzo} fedeltà: {Fedeltà}";
         }
 
-        //Funzione Sconto
-        public virtual double Sconto()
-        {
-            // Sconto del 5% se ha la carta fedeltà
-            if (Fedeltà)
-            {
-                Prezzo = Prezzo - Prezzo * (5 / 100);
-            }
-            return Prezzo;
-        }
+        //metodo Compare
+
     }
 }

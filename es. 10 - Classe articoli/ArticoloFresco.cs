@@ -16,18 +16,17 @@ namespace es._10___Classe_articoli
             set { numerogiorni = value; }
             get { return numerogiorni; }
         }
+
         //Costruttore senza parametri
         public ArticoloFresco() : base()
         {
             numerogiorni = 0;
         }
-
         //Costruttore con parametri
         public ArticoloFresco(int numerogiorni, int anno, int Codice, string Descrizione, int Prezzo, bool Fedeltà) : base(anno, Codice, Descrizione, Prezzo, Fedeltà)
         {
             NumeroGiorni = numerogiorni;
         }
-
         //Costruttore di coppia
         public ArticoloFresco(ArticoloFresco af, Articolo a, ArticoloAlimentare al) : base(a, al)
         {
@@ -43,5 +42,19 @@ namespace es._10___Classe_articoli
             return scontoBase - (scontoBase * scontoGiorni);
         }
 
+        //metodo Equals 
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+                return false;
+
+            ArticoloFresco other = (ArticoloFresco)obj;
+            return base.Equals(obj) && NumeroGiorni == other.NumeroGiorni;
+        }
+        //metodo ToString
+        public override string ToString()
+        {
+            return $"{base.ToString()}, Giorni di Consumo: {NumeroGiorni}";
+        }
     }
 }
