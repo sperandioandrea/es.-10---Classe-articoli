@@ -11,12 +11,12 @@ namespace es._10___Classe_articoli
         private bool riciclabile;
         private string materiale;
 
+        //get e set
         public bool Riciclabile
         {
             set { riciclabile = value; }
             get { return riciclabile; }
         }
-
         public string Materiale
         {
             get { return materiale; }
@@ -35,7 +35,7 @@ namespace es._10___Classe_articoli
             Riciclabile = riciclabile;
             Materiale = materiale;
         }
-        //costruttore di coppia
+        //costruttore di copia
         public ArticoloNonAlimentare(ArticoloNonAlimentare anl, Articolo a) : base(a)
         {
             Riciclabile = anl.Riciclabile;
@@ -63,6 +63,12 @@ namespace es._10___Classe_articoli
         public override string ToString()
         {
             return $"{base.ToString()}, Materiale: {Materiale}, Riciclabile: {Riciclabile}";
+        }
+
+        //metodo Compare
+        public static int Compare(ArticoloNonAlimentare a, ArticoloNonAlimentare b)
+        {
+            return Articolo.Compare(a, b);
         }
     }
 }

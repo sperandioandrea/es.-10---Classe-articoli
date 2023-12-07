@@ -10,7 +10,7 @@ namespace es._10___Classe_articoli
     {
         private int numerogiorni;
         
-
+        //get e set
         public int NumeroGiorni
         {
             set { numerogiorni = value; }
@@ -27,8 +27,8 @@ namespace es._10___Classe_articoli
         {
             NumeroGiorni = numerogiorni;
         }
-        //Costruttore di coppia
-        public ArticoloFresco(ArticoloFresco af, Articolo a, ArticoloAlimentare al) : base(a, al)
+        //Costruttore di copia
+        public ArticoloFresco(ArticoloFresco af,  ArticoloAlimentare al,Articolo a) : base(al, a)
         {
             NumeroGiorni = af.NumeroGiorni;
         }
@@ -55,6 +55,12 @@ namespace es._10___Classe_articoli
         public override string ToString()
         {
             return $"{base.ToString()}, Giorni di Consumo: {NumeroGiorni}";
+        }
+
+        //metodo Compare
+        public static int Compare(ArticoloFresco a, ArticoloFresco b)
+        {
+            return Articolo.Compare(a, b);
         }
     }
 }

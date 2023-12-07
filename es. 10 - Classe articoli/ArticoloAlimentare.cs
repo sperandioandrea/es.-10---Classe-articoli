@@ -12,6 +12,7 @@ namespace es._10___Classe_articoli
         private int anno;
         private ArticoloAlimentare al;
 
+        //get e set
         public int Anno
         {
             set { anno = value; }
@@ -27,7 +28,7 @@ namespace es._10___Classe_articoli
         {
             Anno = anno;
         }
-        //costruttore di coppia
+        //costruttore di copia
         public ArticoloAlimentare(ArticoloAlimentare al, Articolo a) : base(a)
         {
             Anno = al.Anno;
@@ -54,6 +55,12 @@ namespace es._10___Classe_articoli
         public override string ToString()
         {
             return $"{base.ToString()}, Scadenza: {Anno}";
+        }
+
+        //metodo Compare
+        public static int Compare(ArticoloAlimentare a, ArticoloAlimentare b)
+        {
+            return Articolo.Compare(a, b);
         }
 
     }

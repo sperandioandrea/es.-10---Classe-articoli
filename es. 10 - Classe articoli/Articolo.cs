@@ -30,7 +30,7 @@ namespace es._10___Classe_articoli
             _prezzo = Prezzo;
             _fedeltà = Fedeltà;
         }
-        //costruttore di coppia
+        //costruttore di copia
         public Articolo(Articolo a)
         {
             Codice = a.Codice;
@@ -96,6 +96,14 @@ namespace es._10___Classe_articoli
         }
 
         //metodo Compare
-
+        public static int Compare(Articolo a, Articolo b)
+        {
+            if (a.Prezzo < b.Prezzo)
+                return -1;
+            else if (a.Prezzo > b.Prezzo)
+                return 1;
+            else
+                return 0;
+        }
     }
 }
